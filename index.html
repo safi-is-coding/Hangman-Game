@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 align="center">Hangman Game</h1>
+    <div class="container">
+        <section class="right">
+            <p id="name">&copy; Mohammad Safi Maz</p>
+            <h3>Instructions</h3>
+            <p class="instruction">
+                You have 10 lives to guess a word. <br>
+                If you guess the wrong word you will lose one life.
+            </p>
+            <p id="word_length"></p>
+            <label for="letter_input">Guess the letters :</label>
+            <input type="text" name="letter" maxlength="1" id="guess_letter">
+            <button type="submit" id="submit-btn" onclick="check()">Check</button>
+            <br>
+            <h2 id="display"></h2>
+            <h5 id="warning"></h5>
+            <button id="reset" onclick="reset()">Reset Game</button><br>
+        </section>
+        <section class="left">
+            <img src="images/0.jpg" alt="hangman" id="hangman-image">
+        </section>
+    </div>
+    
+    <script src="hangman.js"></script>
+</body>
+</html>
