@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: whitesmoke;
+    background: radial-gradient(rgb(255, 211, 218),rgb(255, 128, 255),rgb(165, 165, 255));
 }
 h1{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -17,11 +17,12 @@ h1{
     display: flex;
     flex-direction: row-reverse;
     text-align: left;
-    background-color: rgb(235, 254, 255);
+    background-color: rgba(235, 254, 255, 0.548);
     margin: 30px ;
     padding: 5%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 20px;
+    box-shadow: 0 0 5px 1px black;
 }
 
 .right{
@@ -29,7 +30,8 @@ h1{
 }
 
 .instruction{
-    color: brown;
+    color: rebeccapurple;
+    font-weight: bold;
 }
 
 .left{
@@ -50,6 +52,27 @@ h1{
     font-size: 15px;
 }
 
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30px, 1fr));
+    gap: 10px;
+}
+
+#alp-btn{
+    height: 3em;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgb(217, 171, 255);
+    border: none;
+    box-shadow: 0 0 1px 1.5px black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+
+#alp-btn:active{
+    box-shadow: 0 0 1px 1px black;
+}
+
 #submit-btn{
     background-color: darkblue;
     color: white;
@@ -63,25 +86,18 @@ img{
     height: 13em;
     border-radius: 20px;
 }
-
+#display{
+    color:crimson;
+    font-size: 2em;
+}
 #reset{
     display: none;
-    background-color: rebeccapurple;
+    background-color: rgb(215, 0, 126);
     color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border: none;
-    padding: 6px;
-}
-
-footer{
-    position: absolute;
-    bottom: 0;
-    background-color: rgba(255, 250, 240, 0.436);
-    width: 100%;
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    color: gray;
-    margin: 0;
+    padding: .5em 1em;
+    border-radius: 5px;
 }
 
 @media (max-width: 800px) {
