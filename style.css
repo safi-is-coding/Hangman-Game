@@ -58,7 +58,7 @@ h1{
     gap: 10px;
 }
 
-#alp-btn{
+.alp-btn{
     height: 3em;
     cursor: pointer;
     border-radius: 50%;
