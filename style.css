@@ -69,7 +69,7 @@ h1{
     font-weight: bold;
 }
 
-#alp-btn:active{
+.alp-btn:active{
     box-shadow: 0 0 1px 1px black;
 }
 
