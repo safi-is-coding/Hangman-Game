@@ -26,7 +26,7 @@ let x = Math.floor(Math.random() * word_list.length - 1 + 1);
 
 let lives = 0;
 chose_word = word_list[ x ];
-console.log(chose_word)
+//console.log(chose_word)
 
 let display = [];
 for (i = 0; i < chose_word.length; i++) {
@@ -38,13 +38,6 @@ document.getElementById("display").innerText = display.join(" ");
 
 let display2 = chose_word.split("");
 
-// let input = document.getElementById("guess_letter");
-// input.addEventListener("keypress", function(event) {
-//   if (event.key === "Enter") {
-//     event.preventDefault();
-//     document.getElementById("submit-btn").click();
-//   }
-// });
 
 function reset () {
     location.reload();
