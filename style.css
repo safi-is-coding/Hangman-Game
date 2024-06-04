@@ -98,6 +98,7 @@ img{
     border: none;
     padding: .5em 1em;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 @media (max-width: 800px) {
