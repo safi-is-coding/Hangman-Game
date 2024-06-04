@@ -1,4 +1,3 @@
-// word list for the hangman game
 let word_list = [
     "apple",
     "banana",
@@ -22,42 +21,36 @@ let word_list = [
     "papaya",
 ];
 
-let x = Math.floor(Math.random() * word_list.length - 1 + 1);
+let x = Math.floor(Math.random() * word_list.length);
 
 let lives = 0;
-chose_word = word_list[ x ];
-//console.log(chose_word)
+let chosen_word = word_list[x];
+console.log(chosen_word);
 
 let display = [];
-for (i = 0; i < chose_word.length; i++) {
+for (let i = 0; i < chosen_word.length; i++) {
     display.push("_");
 }
 
-document.getElementById("word_length").innerHTML =`The word contains ` + String(display.length) + ` letters.`;
+document.getElementById("word_length").innerHTML = `The word contains ` + String(display.length) + ` letters.`;
 document.getElementById("display").innerText = display.join(" ");
 
-let display2 = chose_word.split("");
-
-
-function reset () {
+function reset() {
     location.reload();
 }
-
 
 function check(alp) {
     document.getElementById("warning").innerText = `You've ${10 - lives} lives !`;
 
     if (display.includes('_')) {
-        for (let i = 0; i < display.length; i++) {
-            if (alp === display[i]) {
-                document.getElementById("warning").innerText = `You've already guessed '${alp}'`;
-                return; // No need to continue checking if the letter is already guessed
-            }
+        if (display.includes(alp)) {
+            document.getElementById("warning").innerText = `You've already guessed '${alp}'`;
+            return;
         }
 
         let letterGuessed = false;
-        for (let i = 0; i < chose_word.length; i++) {
-            if (chose_word[i] === alp) {
+        for (let i = 0; i < chosen_word.length; i++) {
+            if (chosen_word[i] === alp) {
                 display[i] = alp;
                 document.getElementById("display").innerText = display.join(" ");
                 letterGuessed = true;
@@ -67,24 +60,24 @@ function check(alp) {
         if (!letterGuessed) {
             lives++;
             if (lives < 10) {
-                document.getElementById("warning").innerText = `You guessed wrong, Try again you have ${10 - lives} left`;
+                document.getElementById("warning").innerText = `You guessed wrong, Try again you have ${10 - lives} lives left`;
                 document.getElementById("hangman-image").src = `images/${lives}.jpg`;
             } else {
                 document.getElementById("reset").style.display = "block";
-                document.getElementById("warning").innerText = `The Word was : ${chose_word}`;
+                document.getElementById("warning").innerText = `The Word was: ${chosen_word}`;
                 document.getElementById("hangman-image").src = `images/over.gif`;
                 disableButtons();
             }
         }
-    } else {
-        // No underscores left in the display array, meaning all letters have been guessed
+    }
+
+    if (!display.includes('_')) {
         document.getElementById("hangman-image").src = `images/dance1.gif`;
-        document.getElementById("warning").innerText = `Congratulations! You've guessed the word: ${chose_word}`;
+        document.getElementById("warning").innerText = `Congratulations! You've guessed the word: ${chosen_word}`;
         document.getElementById("reset").style.display = "block";
         disableButtons();
     }
 }
-
 
 function disableButtons() {
     let buttons = document.getElementsByClassName('alp-btn');
@@ -92,4 +85,3 @@ function disableButtons() {
         buttons[i].disabled = true;
     }
 }
-
